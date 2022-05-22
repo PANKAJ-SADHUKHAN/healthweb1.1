@@ -1,29 +1,4 @@
-<?php
-//connect to a the database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "covidtest";
-
-//create a connection
-$conn = mysqli_connect($servername, $username, $password, $database);
-
-//Die if connection was not successful
-if(!$conn){
-    die("Sorry we failed to connect:". mysqli_connect_error());
-    }
-    else{
-        echo "connection was successful";
-    }
-
-
-
-
-
-
-?>
-
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,31 +9,6 @@ if(!$conn){
  
 </head>
 <body>
-<?php
-  if ($_SERVER['REQUEST_METHOD'] == 'POST')
-  { 
-      $name=$_POST['name'];
-      $text=$_POST['fname'];
-      $email=$_POST['email'];
-      $text=$_POST['date1'];
-      $text=$_POST['phone'];
-      //$radio=$_POST['gender'];
-      $id=$_POST['id'];
-      $sql = @"insert into test.wel values('$name','$fname','$email','$date1','$phone','$id')";
-
-      if ($conn->query($sql) === TRUE) {
-        echo "record inserted successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-
-      echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Success!</strong> Your form '.$text.' '.$text.' '.$email.' '.$text.' '.$text.' '.$radio.' '.$text.' '.$file.' has been submitted succesfully!.
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>';
-  }
-
-?>
     <div class="container">
         <form id="contact" action="test.php" method="post">
             <h1>Covid Testing Form</h1>
